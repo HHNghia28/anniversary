@@ -4,11 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="image/heart.png" type="image/x-icon">
     <script src="./app.js" defer></script>
     <title>Anniversary</title>
 </head>
 <body>
-    <iframe src="music.html" style="display: none;"></iframe>
+
+    <audio id="backgroundMusic" loop>
+        <source src="./audio/audio.mp3" type="audio/mpeg">
+        Trình duyệt của bạn không hỗ trợ thẻ audio.
+    </audio>
+    <!-- <iframe src="music.html" style="display: none;"></iframe> -->
     <div class="loading">
         <div class="boxHeartImg">
             <div class="heartItem item1">
@@ -41,5 +47,15 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // Tự động phát nhạc nền khi trang web được tải
+        window.addEventListener('load', function() {
+            var music = document.getElementById('backgroundMusic');
+            music.play().catch(function(error) {
+                console.log('Lỗi phát nhạc: ', error);
+            });
+        });
+    </script>
 </body>
 </html>
